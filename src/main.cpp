@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+#include "stories.h"
+#include "vault.h"
+
+void printNames(const std::vector<std::string>& names) {
+    if (names.empty()) {
+        std::cout << "(nothing)\n";
+    }
+    for (const std::string& name : names) {
+        std::cout << "  " << name << "\n";
+    }
+}
+
+int main() {
+    Vault vault = makeSeedVault();
+    int choice = -1;
+
+    while (choice != 0) {
+        std::cout << "\n=== HIDDEN LOOT: Gear Vault ===\n"
+                  << "1. Show vault\n"
+                  << "2. Most powerful weapon      (Story 1)\n"
+                  << "3. Vault worth               (Story 2)\n"
+                  << "4. Scrap junk                (Story 3)\n"
+                  << "5. How many Exotics          (Story 4)\n"
+                  << "6. Void weapons              (Story 5)\n"
+                  << "7. Average power level       (Story 6)\n"
+                  << "8. Is loadout complete?      (Story 7)\n"
+                  << "9. Find weapon by name       (Story 8)\n"
+                  << "0. Quit\n> ";
+        if (!(std::cin >> choice)) {
+            break;
+        }
+
+        if (choice == 1) {
+            printVault(vault);
+        } else if (choice == 2) {
+            printNames(mostPowerfulWeapon(vault));
+        } else if (choice == 3) {
+            std::cout << "Vault worth: " << vaultWorth(vault) << " scrap\n";
+        } else if (choice == 4) {
+            int gained = scrapJunk(vault);
+            std::cout << "Scrapped junk for " << gained << " scrap. Balance: " << vault.scrap << "\n";
+        } else if (choice == 5) {
+            std::cout << "Exotics owned: " << countExotics(vault) << "\n";
+        } else if (choice == 6) {
+            printNames(voidWeapons(vault));
+        } else if (choice == 7) {
+            std::cout << "Average power level: " << averagePowerLevel(vault) << "\n";
+        } else if (choice == 8) {
+            std::cout << (isLoadoutComplete(vault) ? "Loadout complete\n" : "Loadout NOT complete\n");
+        } else if (choice == 9) {
+            std::string name;
+            std::cout << "Weapon name: ";
+            std::getline(std::cin >> std::ws, name);
+            int index = findWeapon(vault, name);
+            std::cout << "findWeapon returned " << index << "\n";
+            if (index >= 0 && index < (int)vault.items.size()) {
+                printItem(vault.items[index]);
+            }
+        }
+    }
+    return 0;
+}

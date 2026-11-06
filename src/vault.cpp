@@ -1,0 +1,67 @@
+#include "vault.h"
+#include <iomanip>
+#include <iostream>
+
+std::string toString(ItemType t) {
+    switch (t) {
+        case ItemType::Rifle:   return "Rifle";
+        case ItemType::Shotgun: return "Shotgun";
+        case ItemType::Sniper:  return "Sniper";
+        case ItemType::Sword:   return "Sword";
+        case ItemType::Armour:  return "Armour";
+    }
+    return "?";
+}
+
+std::string toString(Rarity r) {
+    switch (r) {
+        case Rarity::Common:    return "Common";
+        case Rarity::Rare:      return "Rare";
+        case Rarity::Epic:      return "Epic";
+        case Rarity::Legendary: return "Legendary";
+        case Rarity::Exotic:    return "Exotic";
+    }
+    return "?";
+}
+
+std::string toString(Element e) {
+    switch (e) {
+        case Element::Kinetic: return "Kinetic";
+        case Element::Arc:     return "Arc";
+        case Element::Solar:   return "Solar";
+        case Element::Void:    return "Void";
+    }
+    return "?";
+}
+
+void printItem(const Item& item) {
+    std::cout << std::left << std::setw(20) << item.name
+              << std::setw(9) << toString(item.type)
+              << std::setw(11) << toString(item.rarity)
+              << std::setw(8) << toString(item.element)
+              << std::right
+              << std::setw(6) << item.power
+              << std::setw(5) << item.damage
+              << std::setw(5) << item.fireRate
+              << std::setw(6) << item.scrapValue
+              << std::setw(4) << item.quantity
+              << (item.locked ? "  locked" : "") << "\n";
+}
+
+void printVault(const Vault& v) {
+    std::cout << "  # " << std::left << std::setw(20) << "Name"
+              << std::setw(9) << "Type" << std::setw(11) << "Rarity"
+              << std::setw(8) << "Element" << std::right
+              << std::setw(6) << "Power" << std::setw(5) << "Dmg"
+              << std::setw(5) << "RPM" << std::setw(6) << "Scrap"
+              << std::setw(4) << "Qty" << "\n";
+    for (int i = 0; i < (int)v.items.size(); i++) {
+        std::cout << std::setw(3) << i << " ";
+        printItem(v.items[i]);
+    }
+    std::cout << "\nScrap: " << v.scrap << "\nLoadout:\n";
+    for (const LoadoutSlot& slot : v.loadout) {
+        std::cout << "  " << std::left << std::setw(10) << slot.slotName
+                  << (slot.itemName.empty() ? "(empty)" : slot.itemName) << "\n";
+    }
+}

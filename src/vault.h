@@ -1,0 +1,48 @@
+#pragma once
+#include <string>
+#include <vector>
+
+// ---------------------------------------------------------------
+// Hidden Loot: the gear vault data model.
+// You should not need to change anything in this file.
+// ---------------------------------------------------------------
+
+enum class ItemType { Rifle, Shotgun, Sniper, Sword, Armour };
+enum class Rarity { Common, Rare, Epic, Legendary, Exotic };
+enum class Element { Kinetic, Arc, Solar, Void };
+
+struct Item {
+    std::string name;
+    ItemType type = ItemType::Rifle;
+    Rarity rarity = Rarity::Common;
+    int power = 0;        // power level
+    int damage = 0;       // 0 for armour
+    int fireRate = 0;     // rounds per minute; 0 for swords and armour
+    Element element = Element::Kinetic;
+    bool locked = false;  // the player has locked / favourited this item
+    int scrapValue = 0;   // scrap you get for scrapping ONE copy
+    int quantity = 1;     // how many copies of this item are in the vault
+};
+
+// One slot of the equipped loadout, e.g. "Primary" holding "Quiet Engine".
+// An empty slot has an empty itemName.
+struct LoadoutSlot {
+    std::string slotName;
+    std::string itemName;
+};
+
+struct Vault {
+    std::vector<Item> items;
+    int scrap = 0;                    // the player's scrap currency
+    std::vector<LoadoutSlot> loadout; // Primary, Secondary, Heavy, Armour
+};
+
+// The starting vault (see vault_data.cpp). Do not edit the seed data.
+Vault makeSeedVault();
+
+// Printing helpers (see vault.cpp)
+std::string toString(ItemType t);
+std::string toString(Rarity r);
+std::string toString(Element e);
+void printItem(const Item& item);
+void printVault(const Vault& v);

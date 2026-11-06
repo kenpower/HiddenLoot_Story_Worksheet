@@ -1,0 +1,39 @@
+#pragma once
+#include <string>
+#include <vector>
+#include "vault.h"
+
+// ---------------------------------------------------------------
+// One function per user story. Do NOT change these signatures:
+// the Product Owner's acceptance tests call them exactly like this.
+// Implement your stories in stories.cpp.
+// ---------------------------------------------------------------
+
+// Story 1: As a player I want to see my most powerful weapon.
+// Returns the name(s) to show.
+std::vector<std::string> mostPowerfulWeapon(const Vault& v);
+
+// Story 2: As a player I want to see what my vault is worth.
+// Returns the worth in scrap.
+int vaultWorth(const Vault& v);
+
+// Story 3: As a player I want to scrap my junk.
+// Changes the vault, adds the scrap gained to v.scrap and returns the scrap gained.
+int scrapJunk(Vault& v);
+
+// Story 4: As a player I want to know how many Exotics I own.
+int countExotics(const Vault& v);
+
+// Story 5: As a player I want to see all my Void weapons.
+// Returns the names to show.
+std::vector<std::string> voidWeapons(const Vault& v);
+
+// Story 6: As a player I want to know my average power level.
+int averagePowerLevel(const Vault& v);
+
+// Story 7: As a player I want to check if my loadout is complete.
+bool isLoadoutComplete(const Vault& v);
+
+// Story 8: As a player I want to find a weapon by name.
+// Returns the position of the weapon in v.items.
+int findWeapon(const Vault& v, const std::string& name);
