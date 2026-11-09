@@ -72,3 +72,7 @@ out/
 build/
 CMakeUserPresets.json
 *.user
+
+# CLion
+cmake-build-*/
+.idea/
