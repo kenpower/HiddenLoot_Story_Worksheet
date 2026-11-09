@@ -19,6 +19,9 @@
 // Implement your stories in stories.cpp.
 // ---------------------------------------------------------------
 
+// Sample story (already done): As a player I want to see my locked items.
+std::vector<std::string> lockedItems(const Vault& v);
+
 // Story 1: As a player I want to see my most powerful weapon.
 // Returns the name(s) to show.
 std::vector<std::string> mostPowerfulWeapon(const Vault& v);

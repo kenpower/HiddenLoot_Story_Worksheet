@@ -37,6 +37,7 @@ int main() {
                   << "7. Average power level       (Story 6)\n"
                   << "8. Is loadout complete?      (Story 7)\n"
                   << "9. Find weapon by name       (Story 8)\n"
+                  << "10. Sample: locked items\n"
                   << "0. Quit\n> ";
         if (!(std::cin >> choice)) {
             break;
@@ -68,6 +69,8 @@ int main() {
             if (index >= 0 && index < (int)vault.items.size()) {
                 printItem(vault.items[index]);
             }
+        } else if (choice == 10) {
+            printNames(lockedItems(vault));
         }
     }
     return 0;

@@ -21,5 +21,5 @@ See [BUILD.md](BUILD.md) for instructions for Visual Studio, CLion and the comma
 | `src/vault.cpp` | Helpers for converting values to text and printing items | **DO NOT EDIT** |
 | `src/vault_data.cpp` | The seed vault (40 items, scrap, loadout) | **DO NOT EDIT** |
 | `src/stories.h` | One function per story | **DO NOT EDIT** |
-| `src/stories.cpp` | Stubs that return dummy values. This is where you work. | Can edit |
+| `src/stories.cpp` | Useful snippets, a finished sample story, and stubs that return dummy values. This is where you work. | Can edit |
 | `src/main.cpp` | The menu. Each story already has a menu option. | **DO NOT EDIT** |
