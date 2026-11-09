@@ -36,3 +36,30 @@ Then run the program:
 | Windows with Visual Studio's compiler | `build\Debug\hidden_loot.exe` |
 
 After you change code, run `cmake --build build` again before you re-run the program.
+
+## Getting the teacher's tests (only when your teacher says so)
+
+Run this from the repo's folder, in a terminal where `git` works:
+
+```bash
+git fetch https://github.com/kenpower/hidden-loot-po-tests.git main && git checkout FETCH_HEAD -- po_tests
+```
+
+In Windows PowerShell, if `&&` gives an error, run the two parts as separate commands. Then build and
+run the tests the same way you built the program. Only look at the results for your two stories.
+
+**Visual Studio:** choose **Project > Delete Cache and Reconfigure**, then choose **po_tests.exe** in the
+**Select Startup Item** dropdown and press **Ctrl+F5**. Switch back to **hidden_loot.exe** to run the menu.
+
+**CLion:** choose **Tools > CMake > Reload CMake Project**, then choose **po_tests** in the run
+configuration dropdown and press **Shift+F10**.
+
+**Command line:** use your two story numbers in the last line.
+
+```bash
+cmake -S . -B build
+cmake --build build
+./build/po_tests --gtest_filter=Story1.*:Story5.*
+```
+
+On Windows with Visual Studio's compiler, the program is `build\Debug\po_tests.exe`.
