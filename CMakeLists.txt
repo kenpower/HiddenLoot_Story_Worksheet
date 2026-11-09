@@ -26,4 +26,9 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/po_tests")
     file(GLOB PO_TEST_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/po_tests/*.cpp")
     add_executable(po_tests ${PO_TEST_SOURCES})
     target_link_libraries(po_tests PRIVATE vault GTest::gtest_main)
+
+    # Lets IDE test panels (VS Code Testing, Visual Studio Test Explorer) find the tests.
+    enable_testing()
+    include(GoogleTest)
+    gtest_discover_tests(po_tests)
 endif()

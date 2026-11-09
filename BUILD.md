@@ -46,7 +46,7 @@ Then run the program:
 
 After you change code, run `cmake --build build` again before you re-run the program.
 
-## Getting the teacher's tests (only when your teacher says so)
+## Getting the lecturer's tests (only when Ken says so)
 
 Run this from the repo's folder, in a terminal where `git` works:
 
@@ -54,8 +54,14 @@ Run this from the repo's folder, in a terminal where `git` works:
 git fetch https://github.com/kenpower/hidden-loot-po-tests.git main && git checkout FETCH_HEAD -- po_tests
 ```
 
-In Windows PowerShell, if `&&` gives an error, run the two parts as separate commands. Then build and
-run the tests the same way you built the program. Only look at the results for your two stories.
+In Windows PowerShell, run these two commands instead:
+
+```powershell
+git fetch https://github.com/kenpower/hidden-loot-po-tests.git main
+git checkout FETCH_HEAD -- po_tests
+```
+
+Then build and run the tests the same way you built the program. Only look at the results for your two stories.
 
 **Visual Studio:** choose **Project > Delete Cache and Reconfigure**, then choose **po_tests.exe** in the
 **Select Startup Item** dropdown and press **Ctrl+F5**. Switch back to **hidden_loot.exe** to run the menu.

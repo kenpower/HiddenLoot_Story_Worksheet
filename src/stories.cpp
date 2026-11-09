@@ -102,7 +102,7 @@ std::vector<std::string> lockedItems(const Vault& v) {
 
 // Story 1: As a player I want to see my most powerful weapon.
 std::vector<std::string> mostPowerfulWeapon(const Vault& v) {
-    return {};
+    return {}; //return an empty vector for now
 }
 
 // Story 2: As a player I want to see what my vault is worth.
@@ -111,7 +111,7 @@ int vaultWorth(const Vault& v) {
 }
 
 // Story 3: As a player I want to scrap my junk.
-int scrapJunk(Vault& v) {
+int scrapJunk(Vault& v) { // this function can change the vault, so it is not const
     return 0;
 }
 
@@ -122,7 +122,7 @@ int countExotics(const Vault& v) {
 
 // Story 5: As a player I want to see all my Void weapons.
 std::vector<std::string> voidWeapons(const Vault& v) {
-    return {};
+    return {}; //return an empty vector for now
 }
 
 // Story 6: As a player I want to know my average power level.
