@@ -19,6 +19,15 @@ Install the **Desktop development with C++** workload, which includes CMake.
 3. In the run configuration dropdown at the top right, choose **hidden_loot**.
 4. Press **Shift+F10** to build and run, or **Shift+F9** to run with the debugger. The menu appears in the **Run** window; click in it to type.
 
+## VS Code
+
+Install CMake, a C++ compiler, and the **C/C++** and **CMake Tools** extensions.
+
+1. Choose **File > Open Folder** and open this repo's folder.
+2. If asked to select a kit, choose your compiler.
+3. Open the Command Palette (**Ctrl+Shift+P**), run **CMake: Set Launch/Debug Target** and choose **hidden_loot**.
+4. Press **Shift+F5** to build and run, or **Ctrl+F5** to run with the debugger. The menu appears in the terminal.
+
 ## Command line
 
 From the repo's folder:
@@ -53,6 +62,10 @@ run the tests the same way you built the program. Only look at the results for y
 
 **CLion:** choose **Tools > CMake > Reload CMake Project**, then choose **po_tests** in the run
 configuration dropdown and press **Shift+F10**.
+
+**VS Code:** run **CMake: Delete Cache and Reconfigure** from the Command Palette, then **CMake: Set
+Launch/Debug Target** and choose **po_tests**, and press **Shift+F5**. Set the target back to
+**hidden_loot** to run the menu.
 
 **Command line:** use your two story numbers in the last line.
 

@@ -5,7 +5,7 @@ written some user stories. Your job is to implement the ones on your story cards
 
 ## Build and run
 
-See [BUILD.md](BUILD.md) for instructions for Visual Studio, CLion and the command line.
+See [BUILD.md](BUILD.md) for instructions for Visual Studio, CLion, VS Code and the command line.
 
 ## Rules
 
