@@ -5,28 +5,28 @@ The program you want to run is called `hidden_loot`.
 
 ## Visual Studio
 
-Install the **Desktop development with C++** workload, which includes CMake.
+Lab machines already have everything you need.[^vs]
 
-1. Choose **File > Open > Folder** and open this repo's folder. Don't look for a `.sln` file; there isn't one.
-2. Wait for the Output window to say that CMake generation has finished.
-3. In the **Select Startup Item** dropdown next to the green arrow, choose **hidden_loot.exe**.
-4. Press **Ctrl+F5** to build and run, or **F5** to run with the debugger.
+- [ ] Choose **File > Open > Folder** and open this repo's folder. Don't look for a `.sln` file; there isn't one.
+- [ ] Wait for the Output window to say that CMake generation has finished.
+- [ ] In the **Select Startup Item** dropdown next to the green arrow, choose **hidden_loot.exe**.
+- [ ] Press **Ctrl+F5** to build and run, or **F5** to run with the debugger.
 
 ## CLion
 
-1. Choose **File > Open** and open this repo's folder.
-2. If the **Open Project Wizard** appears, click **OK** to accept the Debug profile.
-3. In the run configuration dropdown at the top right, choose **hidden_loot**.
-4. Press **Shift+F10** to build and run, or **Shift+F9** to run with the debugger. The menu appears in the **Run** window; click in it to type.
+- [ ] Choose **File > Open** and open this repo's folder.
+- [ ] If the **Open Project Wizard** appears, click **OK** to accept the Debug profile.
+- [ ] In the run configuration dropdown at the top right, choose **hidden_loot**.
+- [ ] Press **Shift+F10** to build and run, or **Shift+F9** to run with the debugger. The menu appears in the **Run** window; click in it to type.
 
 ## VS Code
 
 Install CMake, a C++ compiler, and the **C/C++** and **CMake Tools** extensions.
 
-1. Choose **File > Open Folder** and open this repo's folder.
-2. If asked to select a kit, choose your compiler.
-3. Open the Command Palette (**Ctrl+Shift+P**), run **CMake: Set Launch/Debug Target** and choose **hidden_loot**.
-4. Press **Shift+F5** to build and run, or **Ctrl+F5** to run with the debugger. The menu appears in the terminal.
+- [ ] Choose **File > Open Folder** and open this repo's folder.
+- [ ] If asked to select a kit, choose your compiler.
+- [ ] Open the Command Palette (**Ctrl+Shift+P**), run **CMake: Set Launch/Debug Target** and choose **hidden_loot**.
+- [ ] Press **Shift+F5** to build and run, or **Ctrl+F5** to run with the debugger. The menu appears in the terminal.
 
 ## Command line
 
@@ -48,37 +48,94 @@ After you change code, run `cmake --build build` again before you re-run the pro
 
 ## Getting the lecturer's tests (only when Ken says so)
 
-Run this from the repo's folder, in a terminal where `git` works:
+Follow the checklist for the tool you use. Run the `git` commands from the repo's folder. Only look
+at the results for your two stories, and copy them onto your Story Log.
 
-```bash
-git fetch https://github.com/kenpower/hidden-loot-po-tests.git main && git checkout FETCH_HEAD -- po_tests
-```
+### Visual Studio
 
-In Windows PowerShell, run these two commands instead:
+- [ ] Open a terminal with **View > Terminal**.
+- [ ] Save your work, then commit and push it:
+  ```bash
+  git add src/stories.cpp
+  git commit -m "Finished our stories"
+  git push
+  ```
+- [ ] Get the tests:
+  ```bash
+  git fetch https://github.com/kenpower/hidden-loot-po-tests.git main
+  git checkout FETCH_HEAD -- po_tests
+  ```
+- [ ] Check there is now a `po_tests` folder next to `CMakeLists.txt`.
+- [ ] Choose **Project > Delete Cache and Reconfigure**, and wait for the Output window to say CMake generation has finished.
+- [ ] Choose **Build > Build All**.
+- [ ] In the **Select Startup Item** dropdown, choose **po_tests.exe**, or open **Test > Test Explorer**.
+- [ ] Press **Ctrl+F5**, or click **Run All** in Test Explorer.
+- [ ] To use the menu again, switch the dropdown back to **hidden_loot.exe**.
 
-```powershell
-git fetch https://github.com/kenpower/hidden-loot-po-tests.git main
-git checkout FETCH_HEAD -- po_tests
-```
+### CLion
 
-Then build and run the tests the same way you built the program. Only look at the results for your two stories.
+- [ ] Open a terminal with **View > Tool Windows > Terminal**.
+- [ ] Save your work, then commit and push it:
+  ```bash
+  git add src/stories.cpp
+  git commit -m "Finished our stories"
+  git push
+  ```
+- [ ] Get the tests:
+  ```bash
+  git fetch https://github.com/kenpower/hidden-loot-po-tests.git main
+  git checkout FETCH_HEAD -- po_tests
+  ```
+- [ ] Check there is now a `po_tests` folder next to `CMakeLists.txt`.
+- [ ] Choose **Tools > CMake > Reset Cache and Reload Project**, and wait for it to finish.
+- [ ] In the run configuration dropdown at the top right, choose **po_tests**.
+- [ ] Press **Shift+F10**.
+- [ ] To use the menu again, switch the dropdown back to **hidden_loot**.
 
-**Visual Studio:** choose **Project > Delete Cache and Reconfigure**, then choose **po_tests.exe** in the
-**Select Startup Item** dropdown and press **Ctrl+F5**. Switch back to **hidden_loot.exe** to run the menu.
+### VS Code
 
-**CLion:** choose **Tools > CMake > Reload CMake Project**, then choose **po_tests** in the run
-configuration dropdown and press **Shift+F10**.
+- [ ] Open a terminal with **Terminal > New Terminal**.
+- [ ] Save your work, then commit and push it:
+  ```bash
+  git add src/stories.cpp
+  git commit -m "Finished our stories"
+  git push
+  ```
+- [ ] Get the tests:
+  ```bash
+  git fetch https://github.com/kenpower/hidden-loot-po-tests.git main
+  git checkout FETCH_HEAD -- po_tests
+  ```
+- [ ] Check there is now a `po_tests` folder next to `CMakeLists.txt`.
+- [ ] In the Command Palette (**Ctrl+Shift+P**), run **CMake: Delete Cache and Reconfigure**.
+- [ ] In the Command Palette, run **CMake: Build**.
+- [ ] In the Command Palette, run **CMake: Set Launch/Debug Target** and choose **po_tests**.
+- [ ] Press **Shift+F5**, or use the **Testing** panel in the sidebar.
+- [ ] To use the menu again, set the target back to **hidden_loot**.
 
-**VS Code:** run **CMake: Delete Cache and Reconfigure** from the Command Palette, then **CMake: Set
-Launch/Debug Target** and choose **po_tests**, and press **Shift+F5**. Set the target back to
-**hidden_loot** to run the menu.
+### Command line
 
-**Command line:** use your two story numbers in the last line.
+- [ ] Save your work, then commit and push it:
+  ```bash
+  git add src/stories.cpp
+  git commit -m "Finished our stories"
+  git push
+  ```
+- [ ] Get the tests:
+  ```bash
+  git fetch https://github.com/kenpower/hidden-loot-po-tests.git main
+  git checkout FETCH_HEAD -- po_tests
+  ```
+- [ ] Check there is now a `po_tests` folder next to `CMakeLists.txt`.
+- [ ] Configure and build:
+  ```bash
+  cmake -S . -B build
+  cmake --build build
+  ```
+- [ ] Run the tests, using your two story numbers:
+  ```bash
+  ./build/po_tests --gtest_filter=Story1.*:Story5.*
+  ```
+  On Windows with Visual Studio's compiler, the program is `build\Debug\po_tests.exe`.
 
-```bash
-cmake -S . -B build
-cmake --build build
-./build/po_tests --gtest_filter=Story1.*:Story5.*
-```
-
-On Windows with Visual Studio's compiler, the program is `build\Debug\po_tests.exe`.
+[^vs]: On your own machine, install the **Desktop development with C++** workload, which includes CMake.
