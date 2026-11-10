@@ -12,8 +12,8 @@ roles: developer on some stories and Product Owner on others.
 | Step | What you do | You'll need |
 |---|---|---|
 | 1. Before ticket | On your own, write down what would need deciding to build a new story ([details](#step-1-before-ticket)) | Form link from Ken |
-| 2. Tour | Build and run the app, then follow along with the sample story and the code | [BUILD.md](BUILD.md) |
-| 3. Be the Product Owner | Decide and write acceptance criteria for your two Product Owner stories | Product Owner worksheet |
+| 2. Tour | Build and run the app, then follow along with the sample story (menu option 10) and the code | [BUILD.md](BUILD.md) |
+| 3. Be the Product Owner | Decide and write acceptance criteria for your two Product Owner stories ([details](#step-3-be-the-product-owner)) | Product Owner worksheet |
 | 4. Develop | Write down your assumptions and questions, then build your two stories ([details](#step-4-develop)) | Story card and Story Log |
 | 5. Review | Show your code to a visiting Product Owner, and check another pair's code against your criteria ([details](#step-5-review)) | Product Owner worksheet, Story Log |
 | 6. Lecturer's tests | When Ken says so, get the tests, run them on your stories, and complete your Story Log | [TESTS.md](TESTS.md), Story Log |
@@ -22,10 +22,18 @@ roles: developer on some stories and Product Owner on others.
 
 ### Step 1: Before ticket
 
-Ken gives you a form link. The form shows a one-line story, and you get 3 minutes, working alone. List everything someone would
-have to decide before they could build it. For an online shop's "see my recent orders", you might
+Ken gives you a form link. The form shows a one-line story, and you get 3 minutes, working alone.
+List everything someone would have to decide before they could build it. For an online shop's "see my recent orders", you might
 write: how recent is recent? Are cancelled orders included? What order are they shown in? This
 isn't marked, so write what you can.
+
+### Step 3: Be the Product Owner
+
+Another pair will build your two Product Owner stories, so you decide what each story should do.
+
+- [ ] Work through the front of the worksheet: the words in the story, the vault data, and the awkward cases. Use menu option 1 to look through the vault.
+- [ ] On the back, write your acceptance criteria. Each one is a single decision, with a check that uses real items from the vault.
+- [ ] Keep your criteria to yourselves until the review. Don't show them to anyone or answer questions about them.
 
 ### Step 4: Develop
 
@@ -70,3 +78,6 @@ See [BUILD.md](BUILD.md) for instructions for Visual Studio, CLion, VS Code and 
 | `src/stories.h` | One function per story | **DO NOT EDIT** |
 | `src/stories.cpp` | Useful snippets, a finished sample story, and stubs that return dummy values. This is where you work. | Can edit |
 | `src/main.cpp` | The menu. Each story already has a menu option. | **DO NOT EDIT** |
+| `CMakeLists.txt` | Build settings, including how the tests are built | **DO NOT EDIT** |
+| `BUILD.md` | How to build and run the app | Read only |
+| `TESTS.md` | How to get and run the lecturer's tests | Read only |
